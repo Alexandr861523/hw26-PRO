@@ -1,7 +1,10 @@
-function ClearButton() {
+function ClearButton({ onClear }) {
     return (
-        <button className="clear-btn">
-            Очистити результати
+        <button
+            className="clear-btn"
+            onClick={onClear}
+        >
+            Clear results
         </button>
     );
 }

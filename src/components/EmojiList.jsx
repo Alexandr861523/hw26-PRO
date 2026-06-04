@@ -1,14 +1,19 @@
 import EmojiCard from './EmojiCard';
-import emojis from '../data/emojis';
 
-function EmojiList() {
+function EmojiList({
+    emojis,
+    votes,
+    onVote,
+}) {
     return (
         <section className="emoji-list">
 
-            {emojis.map((emoji, index) => (
+            {emojis.map(emoji => (
                 <EmojiCard
-                    key={index}
+                    key={emoji.id}
                     emoji={emoji}
+                    votes={votes[emoji.id]}
+                    onVote={onVote}
                 />
             ))}
 

@@ -1,20 +1,38 @@
-function ResultsSection() {
+function ResultsSection({
+    winner,
+    noResults,
+    onShowResults,
+}) {
     return (
         <section className="results">
 
-            <button className="show-results-btn">
+            <button
+                className="show-results-btn"
+                onClick={onShowResults}
+            >
                 Show Results
             </button>
 
-            <div className="winner">
+            {noResults && (
+                <p className="no-results">
+                    No results yet
+                </p>
+            )}
 
-                <h2>Winner</h2>
+            {winner && (
+                <div className="winner">
 
-                <div className="winner-emoji">
-                    ?
+                    <h2>Winner</h2>
+
+                    <div
+                        className="winner-emoji"
+                        dangerouslySetInnerHTML={{
+                            __html: winner.code,
+                        }}
+                    />
+
                 </div>
-
-            </div>
+            )}
 
         </section>
     );

@@ -1,17 +1,21 @@
-function EmojiCard({ emoji }) {
+function EmojiCard({
+    emoji,
+    votes,
+    onVote,
+}) {
     return (
         <div className="emoji-card">
 
             <div
                 className="emoji"
                 dangerouslySetInnerHTML={{
-                    __html: emoji
+                    __html: emoji.code,
                 }}
             />
 
-            <p>Votes: 0</p>
+            <p>Votes: {votes}</p>
 
-            <button>
+            <button onClick={() => onVote(emoji.id)}>
                 Vote
             </button>
 
